@@ -105,6 +105,3 @@ DEPENDENCIES
   rails (= 3.2.22.2)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
-
-BUNDLED WITH
-   1.11.2

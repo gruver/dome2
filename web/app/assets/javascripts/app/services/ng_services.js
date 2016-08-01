@@ -3,5 +3,6 @@
 ////////////////////////////////////////
 
 var serviceModule = angular.module('lights.services', [
-    
+    'apiService',
+    'lightsService',    
 ]);

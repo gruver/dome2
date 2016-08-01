@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require lib/jquery-3.1.0.min
-//= require lib/angular.min
+//= require lib/angular
 //= require lib/bootstrap.min
 //= require lib/lodash.core.min
 //= require_tree ./app
