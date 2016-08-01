@@ -131,3 +131,303 @@ Served asset /app/services/ng_services.js - 200 OK (9ms)
 
 Started GET "/assets/application.js?body=1" for 192.168.86.135 at 2016-07-31 17:51:17 -0700
 Served asset /application.js - 200 OK (59ms)
+
+
+Started GET "/" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Processing by LightsController#index as HTML
+  Rendered lights/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 99.1ms (Views: 97.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /application.css - 200 OK (34ms)
+
+
+Started GET "/assets/lib/bootstrap.min.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /lib/bootstrap.min.css - 200 OK (8ms)
+
+
+Started GET "/assets/lib/jquery-3.1.0.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /lib/jquery-3.1.0.min.js - 200 OK (7ms)
+
+
+Started GET "/assets/lib/bootstrap.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /lib/bootstrap.min.js - 200 OK (35ms)
+
+
+Started GET "/assets/lib/angular.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /lib/angular.min.js - 200 OK (12ms)
+
+
+Started GET "/assets/lib/lodash.core.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /lib/lodash.core.min.js - 200 OK (9ms)
+
+
+Started GET "/assets/app/controllers/ng_controllers.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /app/controllers/ng_controllers.js - 200 OK (16ms)
+
+
+Started GET "/assets/app/controllers/ng_lights.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /app/controllers/ng_lights.js - 200 OK (15ms)
+
+
+Started GET "/assets/app/ng_module.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /app/ng_module.js - 200 OK (6ms)
+
+
+Started GET "/assets/app/services/ng_services.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:37 -0700
+Served asset /app/services/ng_services.js - 200 OK (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:38 -0700
+Served asset /application.js - 200 OK (46ms)
+
+
+Started GET "/" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Processing by LightsController#index as HTML
+  Rendered lights/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 52.2ms (Views: 51.6ms)
+
+
+Started GET "/assets/lib/lodash.core.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /lib/lodash.core.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lib/bootstrap.min.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /lib/bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/jquery-3.1.0.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /lib/jquery-3.1.0.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/bootstrap.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /lib/bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/angular.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /lib/angular.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/app/controllers/ng_lights.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /app/controllers/ng_lights.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/controllers/ng_controllers.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /app/controllers/ng_controllers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/ng_module.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /app/ng_module.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/services/ng_services.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /app/services/ng_services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:55 -0700
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Processing by LightsController#index as HTML
+  Rendered lights/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 25.7ms (Views: 25.4ms)
+
+
+Started GET "/assets/lib/lodash.core.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /lib/lodash.core.min.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/lib/angular.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /lib/angular.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/bootstrap.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /lib/bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/jquery-3.1.0.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /lib/jquery-3.1.0.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/bootstrap.min.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /lib/bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/app/controllers/ng_controllers.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /app/controllers/ng_controllers.js - 304 Not Modified (32ms)
+
+
+Started GET "/assets/app/services/ng_services.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /app/services/ng_services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/ng_module.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /app/ng_module.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/controllers/ng_lights.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /app/controllers/ng_lights.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:58 -0700
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Processing by LightsController#index as HTML
+  Rendered lights/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 26.4ms (Views: 26.2ms)
+
+
+Started GET "/assets/lib/bootstrap.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /lib/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/lib/angular.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /lib/angular.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/bootstrap.min.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /lib/bootstrap.min.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/jquery-3.1.0.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /lib/jquery-3.1.0.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/lib/lodash.core.min.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /lib/lodash.core.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/app/controllers/ng_controllers.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /app/controllers/ng_controllers.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/app/controllers/ng_lights.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /app/controllers/ng_lights.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/ng_module.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /app/ng_module.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/app/services/ng_services.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /app/services/ng_services.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.86.135 at 2016-07-31 17:59:59 -0700
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Processing by LightsController#index as HTML
+  Rendered lights/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 27.5ms (Views: 27.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/lib/bootstrap.min.css?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /lib/bootstrap.min.css - 200 OK (18ms)
+
+
+Started GET "/assets/lib/jquery-3.1.0.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /lib/jquery-3.1.0.min.js - 200 OK (1ms)
+
+
+Started GET "/assets/lib/angular.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /lib/angular.min.js - 200 OK (1ms)
+
+
+Started GET "/assets/lib/bootstrap.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /lib/bootstrap.min.js - 200 OK (15ms)
+
+
+Started GET "/assets/app/controllers/ng_controllers.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /app/controllers/ng_controllers.js - 200 OK (0ms)
+
+
+Started GET "/assets/lib/lodash.core.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /lib/lodash.core.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/app/controllers/ng_lights.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:30 -0700
+Served asset /app/controllers/ng_lights.js - 200 OK (0ms)
+
+
+Started GET "/assets/app/ng_module.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:31 -0700
+Served asset /app/ng_module.js - 200 OK (0ms)
+
+
+Started GET "/assets/app/services/ng_services.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:31 -0700
+Served asset /app/services/ng_services.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-31 18:00:31 -0700
+Served asset /application.js - 200 OK (4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-07-31 18:33:13 -0700
+Processing by LightsController#index as HTML
+  Rendered lights/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 207.0ms (Views: 205.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /application.css - 200 OK (36ms)
+
+
+Started GET "/assets/lib/jquery-3.1.0.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /lib/jquery-3.1.0.min.js - 200 OK (7ms)
+
+
+Started GET "/assets/lib/bootstrap.min.css?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /lib/bootstrap.min.css - 200 OK (9ms)
+
+
+Started GET "/assets/lib/angular.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /lib/angular.min.js - 200 OK (48ms)
+
+
+Started GET "/assets/lib/lodash.core.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /lib/lodash.core.min.js - 200 OK (6ms)
+
+
+Started GET "/assets/lib/bootstrap.min.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /lib/bootstrap.min.js - 200 OK (7ms)
+
+
+Started GET "/assets/app/controllers/ng_lights.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /app/controllers/ng_lights.js - 200 OK (6ms)
+
+
+Started GET "/assets/app/controllers/ng_controllers.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /app/controllers/ng_controllers.js - 200 OK (7ms)
+
+
+Started GET "/assets/app/ng_module.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /app/ng_module.js - 200 OK (6ms)
+
+
+Started GET "/assets/app/services/ng_services.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /app/services/ng_services.js - 200 OK (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-07-31 18:33:14 -0700
+Served asset /application.js - 200 OK (43ms)
