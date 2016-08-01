@@ -1,5 +1,5 @@
 class LightsController < ApplicationController
-    CONFIG_FILE = 'tmp/foo.json'
+    CONFIG_FILE = '../data/state.json'
 
     def index
         @config = ''
@@ -13,7 +13,7 @@ class LightsController < ApplicationController
         puts "\nSET CONFIG\n"
 
         key = params[:key]
-        value = params[:value]
+        value = params[:value]        
 
         puts "#{key} : #{value}"
 

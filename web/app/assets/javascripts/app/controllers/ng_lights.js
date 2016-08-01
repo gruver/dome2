@@ -6,7 +6,10 @@ angular.module('lightsController', ['lights.services'])
             };
 
             $scope.setConfig = function () {
-                Lights.setConfig('foo','bar', function(response){
+                var key = 'color'
+                var value = Math.floor(Math.random()*(100-1+1)+1);
+
+                Lights.setConfig(key, value, function(response){
                     console.log(response);
                 });
             }

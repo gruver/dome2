@@ -1,2 +1,3 @@
 web/tmp
 web/log
+data/state.json
