@@ -27,15 +27,15 @@ int loopCounter = 0;
 int runMode = 4; //pull this from JSON file
 
 void setup() {
-  size(800, 400, P2D);
+  size(400, 500, P2D);
   colorMode(HSB,100);
   rectMode(CENTER);
   imageMode(CENTER);
   
   // Setup the Open Pixel Controller
   OPC opc = new OPC(this, "127.0.0.1", 7890);
-  opc.ledGrid8x8(0,530,200,30,PI,false);
-  opc.ledGrid8x8(64,270,200,30,PI/2,false);
+  opc.ledGrid8x8(0,width/2+75,height/2,15,PI,false);
+  opc.ledGrid8x8(64,width/2-75,height/2,15,PI/2,false);
   
   colorWheel = loadImage("hueGradient.png");
   bwTwinkle = loadImage("black_white_crystals.jpg");
@@ -54,11 +54,11 @@ void setup() {
 void draw() {
   background(0,0,0,0); //black background - reset
   loopCounter = loopCounter + 1;
-  systemState = loadJSONObject("state.json");
+  systemState = loadJSONObject("localstate.json");
   //String stateMessage = systemState.getString("state1");
   float blobColor = systemState.getFloat("color");
-  
-  runMode = int(blobColor / 25)+1;
+  int runMode = systemState.getInt("runMode");
+  //runMode = int(blobColor / 25)+1;
   
   switch (runMode) {
     case 1 :
@@ -69,8 +69,8 @@ void draw() {
       //4 panel FFT
       audioFFT.forward(audioStream.mix);
       for (int i = 1; i <= FFT_BIN_COUNT; i++) {
-        fill(blobColor,100,100,audioFFT.getBand(i));
-        rect(100+200*(i-1),200,200,300);
+        fill(blobColor,100,100,2.0*audioFFT.getBand(i));
+        rect(width/8*(2*i-1),height/2,90,300);
       }
       break;
     case 3 :
@@ -81,7 +81,7 @@ void draw() {
       }
       domeIntensity *= .91;
       fill(blobColor,100,100,domeIntensity);
-      rect(width/2,height/2,600,300);
+      rect(width/2,height/2,300,300);
       break;
     case 4 :
       //twinkle
@@ -90,11 +90,11 @@ void draw() {
   }
   
   fill(0,0,0,100);
-  rect(100,380,400,30);
+  rect(100,height-20,400,20);
   fill(0,0,100,100);
   text("Mode: " + runMode, 20, 20);
   text("Color: " + blobColor, 300, 20);
-  text("Counter: " + loopCounter, 20,380);
+  text("Counter: " + loopCounter, 20,height-20);
 }
 
 void keyPressed() {
