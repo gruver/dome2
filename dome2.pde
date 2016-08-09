@@ -9,6 +9,7 @@ BeatDetect beat;
 FFT audioFFT;
 
 int FFT_BIN_COUNT = 4;
+int LIGHT_CONFIG = 2; //1==dome, 2==goggles, 3==elephant
 
 OPC opc;
 
@@ -26,6 +27,14 @@ float blinkColor = 30;
 int loopCounter = 0;
 int runMode = 4; //pull this from JSON file
 
+int DOME_ROW_COUNT = 5;
+float ROW_SCALE_1 = .10;
+float ROW_SCALE_2 = .25;
+float ROW_SCALE_3 = .40;
+float ROW_SCALE_4 = .55;
+float ROW_SCALE_5 = .70;
+float[] ROW_SCALE_ARRAY = {ROW_SCALE_1, ROW_SCALE_2, ROW_SCALE_3, ROW_SCALE_4, ROW_SCALE_5};
+
 void setup() {
   size(400, 500, P2D);
   colorMode(HSB,100);
@@ -34,8 +43,23 @@ void setup() {
   
   // Setup the Open Pixel Controller
   OPC opc = new OPC(this, "127.0.0.1", 7890);
-  opc.ledGrid8x8(0,width/2+75,height/2,15,PI,false);
-  opc.ledGrid8x8(64,width/2-75,height/2,15,PI/2,false);
+  
+  LIGHT_CONFIG = loadJSONObject("system_config.json").getInt("lightConfig");
+  switch (LIGHT_CONFIG) {
+    case 1 :
+      //dome
+      opc.ledRing(0, 20, width/2, height/2, (width/2)*ROW_SCALE_5, .157);
+      opc.ledRing(64, 20, width/2, height/2, (width/2)*ROW_SCALE_4, 0);
+      opc.ledRing(128, 15, width/2, height/2, (width/2)*ROW_SCALE_3, 0);
+      opc.ledRing(192, 10, width/2, height/2, (width/2)*ROW_SCALE_2, 0);
+      opc.ledRing(202, 5, width/2, height/2, (width/2)*ROW_SCALE_1, 0); //Also on connector 4
+      break;
+    case 2 :
+      //goggles
+      opc.ledGrid8x8(0,width/2+75,height/2,15,PI,false);
+      opc.ledGrid8x8(64,width/2-75,height/2,15,PI/2,false);
+      break;
+  }
   
   colorWheel = loadImage("hueGradient.png");
   bwTwinkle = loadImage("black_white_crystals.jpg");
@@ -70,7 +94,7 @@ void draw() {
       audioFFT.forward(audioStream.mix);
       for (int i = 1; i <= FFT_BIN_COUNT; i++) {
         fill(blobColor,100,100,2.0*audioFFT.getBand(i));
-        rect(width/8*(2*i-1),height/2,90,300);
+        rect(width/8*(2*i-1),height/2,98,300);
       }
       break;
     case 3 :
