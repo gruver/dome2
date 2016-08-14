@@ -8,7 +8,7 @@ AudioInput audioStream;
 BeatDetect beat;
 FFT audioFFT;
 
-int FFT_BIN_COUNT = 4;
+int FFT_BIN_COUNT = 12;
 int LIGHT_CONFIG = 2; //1==dome, 2==goggles, 3==elephant
 
 OPC opc;
@@ -26,6 +26,7 @@ float blinkColor = 30;
 
 int loopCounter = 0;
 int runMode = 4; //pull this from JSON file
+float stateTracker = 0; //hold a state for an effect
 
 int DOME_ROW_COUNT = 5;
 float ROW_SCALE_1 = .10;
@@ -87,14 +88,14 @@ void draw() {
   switch (runMode) {
     case 1 :
       //color wheel
-      spinImage(loopCounter, .5, colorWheel);
+      spinImage(loopCounter, .35, colorWheel);
       break;
     case 2 :
       //4 panel FFT
       audioFFT.forward(audioStream.mix);
       for (int i = 1; i <= FFT_BIN_COUNT; i++) {
         fill(blobColor,100,100,2.0*audioFFT.getBand(i));
-        rect(width/8*(2*i-1),height/2,98,300);
+        rect(width/(2*FFT_BIN_COUNT)*(2*i-1),height/2,width/FFT_BIN_COUNT,300);
       }
       break;
     case 3 :
@@ -111,6 +112,9 @@ void draw() {
       //twinkle
       spinImage(loopCounter,1.3,bwTwinkle);
       break;
+    case 5 :
+      pulseImage(loopCounter,audioStream.mix,colorWheel,stateTracker);
+      break;
   }
   
   fill(0,0,0,100);
@@ -118,7 +122,7 @@ void draw() {
   fill(0,0,100,100);
   text("Mode: " + runMode, 20, 20);
   text("Color: " + blobColor, 300, 20);
-  text("Counter: " + loopCounter, 20,height-20);
+  text("Counter: " + loopCounter, 20,height-15);
 }
 
 void keyPressed() {
