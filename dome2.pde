@@ -66,7 +66,7 @@ void setup() {
   
   minim = new Minim(this);
   song = minim.loadFile(songSource, 2048);
-  audioStream = minim.getLineIn(Minim.MONO, 1024);
+  audioStream = minim.getLineIn(Minim.STEREO, 1024);
   audioFFT = new FFT(audioStream.bufferSize(), audioStream.sampleRate());
   audioFFT.linAverages(FFT_BIN_COUNT);
   //audioStream.enableMonitoring();
