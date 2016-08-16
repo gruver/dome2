@@ -23,6 +23,7 @@ String songSource = "Country_Roads.mp3";
 int controllerKey = 0;
 float domeIntensity = 0;
 float blinkColor = 30;
+int fadeStart = 0; //marker for fadeDome()
 
 int loopCounter = 0;
 int runMode = 4; //pull this from JSON file
@@ -86,6 +87,7 @@ void draw() {
   //runMode = int(blobColor / 25)+1;
   
   switch (runMode) {
+    default :
     case 1 :
       //color wheel
       spinImage(loopCounter, .35, colorWheel);
@@ -115,6 +117,9 @@ void draw() {
     case 5 :
       pulseImage(loopCounter,audioStream.mix,colorWheel,stateTracker);
       break;
+    case 6 :
+      fadeDome(loopCounter, 30, 65, 1.2);
+      break;
   }
   
   fill(0,0,0,100);
@@ -126,6 +131,8 @@ void draw() {
 }
 
 void keyPressed() {
-  controllerKey = key;
-  blinkColor = (blinkColor + 1.5) % 100;
+  
+  if (key == 'n') {
+     //
+  }
 }
