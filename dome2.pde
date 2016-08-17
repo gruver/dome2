@@ -88,9 +88,12 @@ void draw() {
   
   switch (runMode) {
     default :
-    case 1 :
+    case 0 :
       //color wheel
       spinImage(loopCounter, .35, colorWheel);
+      break;
+    case 1 :
+      fadeDome(loopCounter, 1, 20, 2.1);
       break;
     case 2 :
       //4 panel FFT
@@ -118,7 +121,14 @@ void draw() {
       pulseImage(loopCounter,audioStream.mix,colorWheel,stateTracker);
       break;
     case 6 :
+      //gradient between two colors
       fadeDome(loopCounter, 30, 65, 1.2);
+      break;
+    case 7 :
+      smoothRainbow(loopCounter, .05);
+      break;
+    case 8 :
+      twoColorTwinkle(loopCounter,.4,80,85);
       break;
   }
   
@@ -133,6 +143,10 @@ void draw() {
 void keyPressed() {
   
   if (key == 'n') {
-     //
+     systemState = loadJSONObject("localstate.json");
+     int runMode = systemState.getInt("runMode");
+     runMode = (runMode + 1) % 9;
+     systemState.setInt("runMode", runMode);
+     saveJSONObject(systemState, "data/localstate.json");
   }
 }

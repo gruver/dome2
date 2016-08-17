@@ -1,7 +1,7 @@
 void spinImage(int loopCounter, float speed, PImage projectedImage) {
   imageMode(CENTER);
   float theta = radians((float(loopCounter) * speed) % 360);
-  tint(color(0,0,100));
+  //tint(color(0,0,100));
   pushMatrix();
   translate(width/2, height/2);
   rotate(theta);
@@ -56,4 +56,17 @@ void fadeDome (int loopCounter, int color1, int color2, float speed) {
   fill(c,100,100);
   rect(width/2,height/2, .9*width, .9*width);
   
+}
+
+void smoothRainbow (int loopCounter, float speed) {
+  int c = int(loopCounter * speed) % 100;
+  background(0,0,0);
+  fill(c,100,100);
+  rect(width/2,height/2,width * .95, width * .95);
+}
+
+void twoColorTwinkle(int loopCounter, float speed, int color1, int color2) {
+  background(color2,100,100);
+  tint(color1,100,100);
+  spinImage(loopCounter,speed,bwTwinkle);
 }

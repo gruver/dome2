@@ -247,6 +247,7 @@ public class OPC
       int pixelLocation = pixelLocations[i];
       int pixel = pixels[pixelLocation];
 
+      // EDIT THIS FOR DOME - Should be 0, 16, 8; For Elephant 16, 8, 0
       packetData[ledAddress] = (byte)(pixel >> 16);
       packetData[ledAddress + 1] = (byte)(pixel >> 8);
       packetData[ledAddress + 2] = (byte)pixel;
