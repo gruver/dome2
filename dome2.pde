@@ -57,6 +57,13 @@ void setup() {
       opc.ledRing(202, 5, width/2, height/2, (width/2)*ROW_SCALE_1, 0); //Also on connector 4
       break;
     case 2 :
+      //elephant
+      opc.ledRing(0, 16, width/2, height/2, width/2 * 0.8, 0);
+      opc.ledRing(16, 12, width/2, height/2, width/2 * 0.65, 0);
+      opc.ledRing(28, 8, width/2, height/2, width/2 * 0.5, 0);
+      opc.ledRing(36, 4, width/2, height/2, width/2 * 0.35, 0);
+      break;
+    case 3 :
       //goggles
       opc.ledGrid8x8(0,width/2+75,height/2,15,PI,false);
       opc.ledGrid8x8(64,width/2-75,height/2,15,PI/2,false);

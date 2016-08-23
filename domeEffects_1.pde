@@ -69,4 +69,5 @@ void twoColorTwinkle(int loopCounter, float speed, int color1, int color2) {
   background(color2,100,100);
   tint(color1,100,100);
   spinImage(loopCounter,speed,bwTwinkle);
+  tint(0,0,100);
 }

@@ -9,6 +9,8 @@
 import java.net.*;
 import java.util.Arrays;
 
+int COLOR_MODE = 0; //0 = elephant, 1 = HHC dome
+
 public class OPC
 {
   Socket socket;
@@ -248,9 +250,16 @@ public class OPC
       int pixel = pixels[pixelLocation];
 
       // EDIT THIS FOR DOME - Should be 0, 16, 8; For Elephant 16, 8, 0
-      packetData[ledAddress] = (byte)(pixel >> 16);
-      packetData[ledAddress + 1] = (byte)(pixel >> 8);
-      packetData[ledAddress + 2] = (byte)pixel;
+      if (COLOR_MODE == 0) {  //ELEPHANT
+        packetData[ledAddress] = (byte)(pixel >> 16);
+        packetData[ledAddress + 1] = (byte)(pixel >> 8);
+        packetData[ledAddress + 2] = (byte)pixel;
+      }
+      else { //HHC DOME
+        packetData[ledAddress] = (byte)(pixel);
+        packetData[ledAddress + 1] = (byte)(pixel >> 16);
+        packetData[ledAddress + 2] = (byte)(pixel >> 8);
+      }
       ledAddress += 3;
 
       if (enableShowLocations) {
