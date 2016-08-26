@@ -18,7 +18,9 @@ JSONObject systemState;
 PImage colorWheel;
 PImage bwTwinkle;
 
-String songSource = "Country_Roads.mp3";
+String fileRoot = "/home/pi/sketchbook/dome2/";
+
+//String songSource = fileRoot + "Country_Roads.mp3";
 
 int controllerKey = 0;
 float domeIntensity = 0;
@@ -52,7 +54,7 @@ void setup() {
   // Setup the Open Pixel Controller
   OPC opc = new OPC(this, "127.0.0.1", 7890);
   
-  LIGHT_CONFIG = loadJSONObject("system_config.json").getInt("lightConfig");
+  LIGHT_CONFIG = loadJSONObject(fileRoot + "data/system_config.json").getInt("lightConfig");
   switch (LIGHT_CONFIG) {
     case 1 :
       //dome
@@ -76,11 +78,11 @@ void setup() {
       break;
   }
   
-  colorWheel = loadImage("hueGradient.png");
-  bwTwinkle = loadImage("black_white_crystals.jpg");
+  colorWheel = loadImage(fileRoot + "hueGradient.png");
+  bwTwinkle = loadImage(fileRoot + "black_white_crystals.jpg");
   
   minim = new Minim(this);
-  song = minim.loadFile(songSource, 2048);
+  //song = minim.loadFile(songSource, 2048);
   audioStream = minim.getLineIn(Minim.STEREO, 1024);
   audioFFT = new FFT(audioStream.bufferSize(), audioStream.sampleRate());
   audioFFT.linAverages(FFT_BIN_COUNT);
@@ -93,11 +95,10 @@ void setup() {
 void draw() {
   background(0,0,0,0); //black background - reset
   loopCounter = loopCounter + 1;
-  systemState = loadJSONObject("localstate.json");
-  //String stateMessage = systemState.getString("state1");
+  systemState = loadJSONObject(fileRoot + "data/localstate.json");
+  
   float blobColor = systemState.getFloat("color");
   int runMode = systemState.getInt("runMode");
-  //runMode = int(blobColor / 25)+1;
   
   switch (runMode) {
     default :
@@ -106,7 +107,7 @@ void draw() {
       spinImage(loopCounter, .35, colorWheel);
       break;
     case 1 :
-      fadeDome(loopCounter, 1, 60, 1.1);
+      fadeDome(loopCounter, 45, 80, 1.1);
       break;
     case 2 :
       //4 panel FFT
@@ -117,21 +118,15 @@ void draw() {
       }
       break;
     case 3 :
-      //beat detect
-      beat.detect(audioStream.mix);
-      if (beat.isOnset()) {
-        domeIntensity = 100; 
-      }
-      domeIntensity *= .91;
-      fill(blobColor,100,100,domeIntensity);
-      rect(width/2,height/2,300,300);
+      //beat pulse
+      beatPulse(loopCounter, audioStream.mix,36,65);
       break;
     case 4 :
-      //twinkle
-      spinImage(loopCounter,.6,bwTwinkle);
+      fourCorners(loopCounter, audioStream.mix);
       break;
     case 5 :
-      pulseImage(loopCounter,audioStream.mix,colorWheel,stateTracker);
+      //twinkle
+      spinImage(loopCounter,.6,bwTwinkle);
       break;
     case 6 :
       //gradient between two colors
@@ -141,13 +136,13 @@ void draw() {
       smoothRainbow(loopCounter, .05);
       break;
     case 8 :
-      twoColorTwinkle(loopCounter,1.3,dRed,dWhite);
+      twoColorTwinkle(loopCounter,.9,dRed,dWhite,8);
       break;
     case 9 :
-      twoColorTwinkle(loopCounter,.5,eBlue,eGreen);
+      twoColorTwinkle(loopCounter,.5,eBlue,eGreen,8);
       break;
     case 10 :
-      fourCorners(loopCounter, audioStream.mix);
+      twoColorTwinkle(loopCounter,.65,30,80,1);
       break;
   }
   
@@ -160,12 +155,15 @@ void draw() {
 }
 
 void keyPressed() {
-  
-  if (key == 'n') {
-     systemState = loadJSONObject("localstate.json");
-     int runMode = systemState.getInt("runMode");
-     runMode = (runMode + 1) % 11;
-     systemState.setInt("runMode", runMode);
-     saveJSONObject(systemState, "data/localstate.json");
+  int total = 10;
+  systemState = loadJSONObject(fileRoot + "data/localstate.json");
+  int runMode = systemState.getInt("runMode");
+  if (key == 'n' || key == ' ') {
+     runMode = (runMode + 1) % (total + 1);
   }
+  if (key == 'N') {
+    runMode = (runMode + 10) % (total + 1);
+  }
+  systemState.setInt("runMode", runMode);
+  saveJSONObject(systemState, fileRoot + "data/localstate.json");
 }

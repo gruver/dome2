@@ -49,20 +49,29 @@ void fourCorners(int loopCounter, AudioBuffer audioSource) {
   
 }
 
-void pulseImage(int loopCounter, AudioBuffer audioSource, PImage pulseImage, float intensityState) {
-  imageMode(CENTER);
-  /*
+void beatPulse(int loopCounter, AudioBuffer audioSource, int c1, int c2) {
+  background(0,0,0);
+  ellipseMode(CENTER);
+  fill(c1,100,80);
+  rect(width/2,height/2,width,width);
   audioFFT.forward(audioSource);
-  
-  float maxBass = 0;
-  float expFilt = .75;
-  
-  for (int i = 0; i < 4; i++) {
-    maxBass = max(maxBass, audioFFT.getBand(i));
+  float bassSum = 0;
+  int lower = 5;
+  int upper = 8;
+  for (int i = lower; i <= upper; i++) {
+    bassSum += audioFFT.getBand(i);
+  }
+  if (bassSum > 300.0) {
+    stateTracker = 1.0;
   }
   
-  intensityState = maxBass * expFilt + intensityState * (1-expFilt);
-  */
+  stateTracker = stateTracker *= .91;
+  fill(c2,100,100);
+  ellipse(width/2,height/2,stateTracker*width,stateTracker*width);
+}
+
+void pulseImage(int loopCounter, AudioBuffer audioSource, PImage pulseImage, float intensityState) {
+  imageMode(CENTER);
   intensityState = int(beatDetect(audioSource)) * 100;
   
   tint(color(0,0,100,max(30,intensityState)));
@@ -105,18 +114,15 @@ void smoothRainbow (int loopCounter, float speed) {
   rect(width/2,height/2,width * .95, width * .95);
 }
 
-void twoColorTwinkle(int loopCounter, float speed, int color1, int color2) {
+void twoColorTwinkle(int loopCounter, float speed, int color1, int color2, int barPairs) {
   background(0,0,0);
   color c1 = color(color1,100,100);
   color c2 = color(color2,100,100);
   if (color2 == -1) {
     c2 = color(0,0,100);
-  }/*
-  else {
-    color c2 = color(color2,100,100);
-  }*/
+  }
     
-  int bars = 12;
+  int bars = barPairs * 2;
   float theta = radians((float(loopCounter) * speed) % 360);
   
   pushMatrix();
@@ -129,7 +135,7 @@ void twoColorTwinkle(int loopCounter, float speed, int color1, int color2) {
     } else {
       fill(c2);
     }
-    rect(width*(2*i+1)/(bars*2),height/2,width/8,width);
+    rect(width*(2*i+1)/(bars*2),height/2,width/bars,width);
   }
 
   popMatrix();
