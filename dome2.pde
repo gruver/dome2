@@ -29,6 +29,12 @@ int loopCounter = 0;
 int runMode = 4; //pull this from JSON file
 float stateTracker = 0; //hold a state for an effect
 
+//useful color hue values
+int eBlue = 60;
+int eGreen = 30;
+int dRed = 3;
+int dWhite = -1;
+
 int DOME_ROW_COUNT = 5;
 float ROW_SCALE_1 = .10;
 float ROW_SCALE_2 = .25;
@@ -100,7 +106,7 @@ void draw() {
       spinImage(loopCounter, .35, colorWheel);
       break;
     case 1 :
-      fadeDome(loopCounter, 1, 20, 2.1);
+      fadeDome(loopCounter, 1, 60, 1.1);
       break;
     case 2 :
       //4 panel FFT
@@ -122,20 +128,26 @@ void draw() {
       break;
     case 4 :
       //twinkle
-      spinImage(loopCounter,1.3,bwTwinkle);
+      spinImage(loopCounter,.6,bwTwinkle);
       break;
     case 5 :
       pulseImage(loopCounter,audioStream.mix,colorWheel,stateTracker);
       break;
     case 6 :
       //gradient between two colors
-      fadeDome(loopCounter, 30, 65, 1.2);
+      fadeDome(loopCounter, eGreen, eBlue, 1.2);
       break;
     case 7 :
       smoothRainbow(loopCounter, .05);
       break;
     case 8 :
-      twoColorTwinkle(loopCounter,.4,80,85);
+      twoColorTwinkle(loopCounter,1.3,dRed,dWhite);
+      break;
+    case 9 :
+      twoColorTwinkle(loopCounter,.5,eBlue,eGreen);
+      break;
+    case 10 :
+      fourCorners(loopCounter, audioStream.mix);
       break;
   }
   
@@ -152,7 +164,7 @@ void keyPressed() {
   if (key == 'n') {
      systemState = loadJSONObject("localstate.json");
      int runMode = systemState.getInt("runMode");
-     runMode = (runMode + 1) % 9;
+     runMode = (runMode + 1) % 11;
      systemState.setInt("runMode", runMode);
      saveJSONObject(systemState, "data/localstate.json");
   }

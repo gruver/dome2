@@ -1,3 +1,5 @@
 web/tmp
 web/log
 data/state.json
+compiled_dome/
+fullscreen_dome2/
